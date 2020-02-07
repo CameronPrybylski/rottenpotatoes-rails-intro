@@ -29,7 +29,7 @@ class MoviesController < ApplicationController
 			redirect_to movies_path(params) and return
 		end
 		@checked_ratings = (session[:ratings].keys if session.key?(:ratings)) || @all_ratings
-    @movies = Movie.order(sort_by).where(rating: @checked_ratings)
+    @movies = Movie.order(sort).where(rating: @checked_ratings)
     
   end
 
